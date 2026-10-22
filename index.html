@@ -107,6 +107,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 :root[data-theme="dark"] .btn.blue{background:var(--bright)}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn.blue{background:var(--bright)}}
 .btn.block{width:100%;margin-top:18px}
+.btn.block + .btn.block{margin-top:10px}
+.btn.outline{background:transparent;color:var(--head);box-shadow:inset 0 0 0 2.5px var(--head)}
 
 /* Main grid */
 main{padding-block:36px 48px;display:grid;gap:28px}
@@ -267,8 +269,9 @@ footer{background:var(--footer);border-top:1px solid rgba(255,255,255,.12);paddi
       </div>
       <div class="card center">
         <h2>Stay Connected</h2>
-        <p>Join the Eliot families Facebook group for reminders, photos, and last-minute volunteer asks.</p>
-        <a class="btn blue block" href="https://www.facebook.com/groups/296733184128914/" target="_blank" rel="noopener">Join the Facebook group</a>
+        <p>Join the Eliot families Facebook group for reminders and last-minute volunteer asks, and follow us on Instagram for photos and event news.</p>
+        <a class="btn blue block" href="https://www.facebook.com/groups/296733184128914/" target="_blank" rel="noopener">Join on Facebook</a>
+        <a class="btn outline block" href="https://www.instagram.com/eliotptc/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM16.6 2H7.4A5.4 5.4 0 0 0 2 7.4v9.2A5.4 5.4 0 0 0 7.4 22h9.2a5.4 5.4 0 0 0 5.4-5.4V7.4A5.4 5.4 0 0 0 16.6 2zm3.6 14.6a3.6 3.6 0 0 1-3.6 3.6H7.4a3.6 3.6 0 0 1-3.6-3.6V7.4a3.6 3.6 0 0 1 3.6-3.6h9.2a3.6 3.6 0 0 1 3.6 3.6z"/></svg> Follow on Instagram</a>
       </div>
     </div>
 
@@ -374,6 +377,7 @@ footer{background:var(--footer);border-top:1px solid rgba(255,255,255,.12);paddi
       <ul>
         <li><a href="mailto:PTCeliot@gmail.com">PTCeliot@gmail.com</a></li>
         <li><a href="https://www.facebook.com/groups/296733184128914/" target="_blank" rel="noopener">Facebook group</a></li>
+        <li><a href="https://www.instagram.com/eliotptc/" target="_blank" rel="noopener">Instagram (@eliotptc)</a></li>
         <li><a href="https://givebutter.com/empower-eliot-2026-2027-ndfgbe" target="_blank" rel="noopener">Donate to Empower Eliot</a></li>
       </ul>
     </div>
