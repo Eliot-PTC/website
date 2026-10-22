@@ -1,0 +1,64 @@
+/* John Eliot Elementary School / Eliot PTC brand tokens
+   Import fonts:
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Fredoka:wght@600;700&family=Kalam:wght@700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+*/
+:root {
+  /* Color */
+  --eliot-navy: #0B1F4F;
+  --eliot-eagle-blue: #1E4280;
+  --eliot-bright-blue: #3A7BC8;
+  --eliot-sky: #6292C8;
+  --eliot-pale-sky: #D6E8F8;
+  --eliot-gold: #F2C94C;
+  --eliot-butter: #F7DE6E;
+  --eliot-cream: #FBF3D6;
+  --eliot-white: #FFFFFF;
+
+  /* Type */
+  --eliot-font-wordmark: "Montserrat", "Arial Black", sans-serif;
+  --eliot-font-display: "Fredoka", "Trebuchet MS", sans-serif;
+  --eliot-font-hand: "Kalam", "Patrick Hand", "Comic Sans MS", cursive;
+  --eliot-font-body: "Nunito", "Segoe UI", system-ui, sans-serif;
+
+  /* Shape */
+  --eliot-radius-card: 20px;
+  --eliot-radius-pill: 999px;
+}
+
+body {
+  background: var(--eliot-white);
+  color: var(--eliot-navy);
+  font-family: var(--eliot-font-body);
+}
+
+/* Navy text on a yellow brush-stroke highlight */
+.eliot-highlight {
+  background: linear-gradient(100deg, transparent 2%, var(--eliot-butter) 4%, var(--eliot-butter) 96%, transparent 98%);
+  padding: 0.05em 0.35em;
+}
+
+.eliot-card {
+  background: var(--eliot-pale-sky);
+  border-radius: var(--eliot-radius-card);
+  padding: 1.25rem 1.5rem;
+}
+
+.eliot-button {
+  background: var(--eliot-gold);
+  color: var(--eliot-navy);
+  font-family: var(--eliot-font-wordmark);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 0;
+  border-radius: var(--eliot-radius-pill);
+  padding: 0.7em 1.6em;
+}
+
+.eliot-tagline {
+  font-family: var(--eliot-font-wordmark);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--eliot-navy);
+}
