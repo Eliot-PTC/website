@@ -4,311 +4,321 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Maple Hill PTC</title>
+<title>John Eliot School PTC</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="The John Eliot School Parent Teacher Council in Needham, MA: events, committees, volunteering, and the Empower Eliot campaign.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Source+Sans+3:wght@500;600;700&display=swap">
 <style>
-/* Layout: a school bulletin board. Evergreen header band, marigold (school-bus) accent,
-   events pinned as wall-calendar tear-off dates, single readable column for everything else. */
+/* Layout: Broadmeadow-style PTC site. White top bar, full-width school banner with a gold
+   stripe, left column of white cards beside an agenda-style calendar, footer link columns. */
 :root{
-  --bg:#f7f9f6;
-  --surface:#ffffff;
-  --ink:#16251f;
-  --muted:#52625a;
-  --line:#d9e2dc;
-  --green:#1f4d3a;
-  --green-ink:#f1f6f2;
-  --marigold:#f2b632;
-  --marigold-ink:#2a1e00;
-  --tint:#e8f0eb;
-  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
-  --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --page:#efedea;
+  --card:#ffffff;
+  --ink:#24272d;
+  --muted:#5d636d;
+  --line:#dcd9d4;
+  --navy:#1f3a68;
+  --blue:#3a68ad;
+  --blue-ink:#ffffff;
+  --gold:#f0c54a;
+  --bar:#ffffff;
+  --chip:#e6ecf5;
+  --head:"Merriweather", Georgia, "Times New Roman", serif;
+  --body:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --ui:"Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#101814; --surface:#17221c; --ink:#e6eee9; --muted:#9db0a5; --line:#2a3a31;
-    --green:#173a2c; --green-ink:#e6f1ea; --marigold:#f5c24f; --marigold-ink:#231800; --tint:#1c2b23;
+    --page:#15181d; --card:#1e232a; --ink:#e7e9ec; --muted:#a2a9b4; --line:#323944;
+    --navy:#9fbbe8; --blue:#4d7fc6; --blue-ink:#ffffff; --gold:#e8bb3c; --bar:#1b1f25; --chip:#26303d;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#101814; --surface:#17221c; --ink:#e6eee9; --muted:#9db0a5; --line:#2a3a31;
-  --green:#173a2c; --green-ink:#e6f1ea; --marigold:#f5c24f; --marigold-ink:#231800; --tint:#1c2b23;
+  --page:#15181d; --card:#1e232a; --ink:#e7e9ec; --muted:#a2a9b4; --line:#323944;
+  --navy:#9fbbe8; --blue:#4d7fc6; --blue-ink:#ffffff; --gold:#e8bb3c; --bar:#1b1f25; --chip:#26303d;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
-.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
-h1,h2,h3{font-family:var(--display);line-height:1.1;text-wrap:balance;margin:0}
-h2{font-size:clamp(1.7rem,3.2vw,2.3rem);font-weight:800;letter-spacing:-0.01em}
-h3{font-size:1.2rem;font-weight:700}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--page);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--head);color:var(--navy);line-height:1.25;text-wrap:balance;margin:0}
 p{margin:0}
-a{color:inherit}
-a:focus-visible,button:focus-visible{outline:3px solid var(--marigold);outline-offset:3px;border-radius:4px}
-.eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+a{color:var(--blue)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:3px}
+[id]{scroll-margin-top:84px}
 
-/* Header + hero band */
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--green)}
-.top{background:var(--green);color:var(--green-ink)}
-.nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding-block:18px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:1.25rem}
-.leaf{width:38px;height:38px;flex:none}
-.nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 20px;font-weight:700;font-size:.95rem}
-.nav ul a{text-decoration:none;opacity:.9}
-.nav ul a:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
-.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:end;padding-block:48px 56px}
-.hero h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;letter-spacing:-0.02em}
-.hero h1 em{font-style:normal;color:var(--marigold)}
-.hero p{margin-top:18px;font-size:1.15rem;max-width:34em;opacity:.92}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.btn{display:inline-block;padding:12px 20px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid transparent;font-family:var(--body);font-size:1rem;cursor:pointer}
-.btn-primary{background:var(--marigold);color:var(--marigold-ink)}
-.btn-ghost{border-color:currentColor;color:inherit;background:transparent}
-.next{background:var(--marigold);color:var(--marigold-ink);border-radius:14px;padding:22px;transform:rotate(1.2deg)}
-.next .eyebrow{color:var(--marigold-ink);opacity:.75}
-.next h3{font-size:1.5rem;margin-top:6px}
-.next p{margin-top:8px;font-size:1rem}
+/* Top bar */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--bar)}
+.bar{position:sticky;top:env(safe-area-inset-top, 0px);z-index:9;background:var(--bar);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--head);font-weight:700;font-size:1.15rem}
+.badge{width:40px;height:40px;flex:none}
+.menu{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:2px 20px;font-family:var(--ui);font-weight:600;font-size:.95rem}
+.menu a{color:var(--ink);text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}
+.menu a:hover{border-bottom-color:var(--gold)}
 
-section{padding-block:64px}
-.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px;margin-bottom:28px}
-.sec-head p{color:var(--muted);max-width:32em}
+/* Banner */
+.banner{position:relative;border-bottom:8px solid var(--gold);
+  background:
+    linear-gradient(180deg, rgba(16,30,56,.15), rgba(16,30,56,.55)),
+    url("eliot-banner.jpg") center/cover no-repeat,
+    linear-gradient(135deg,#29497f 0%,#1f3a68 55%,#16294b 100%);}
+.banner .wrap{padding-block:72px 56px;color:#fff}
+.banner h1{color:#fff;font-size:clamp(1.9rem,4.6vw,3rem);font-weight:900;max-width:18ch}
+.banner p{margin-top:12px;font-size:1.15rem;max-width:36em;color:#eef2f9}
+.banner .addr{margin-top:18px;font-family:var(--ui);font-size:.92rem;letter-spacing:.04em;color:#d6e0f0}
 
-/* Events: tear-off calendar dates */
-.events{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-.event{display:grid;grid-template-columns:84px 1fr auto;gap:20px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 20px}
-.date{text-align:center;border-radius:8px;overflow:hidden;border:1px solid var(--line);font-variant-numeric:tabular-nums}
-.date .m{display:block;background:var(--green);color:var(--green-ink);font-size:.72rem;font-weight:700;letter-spacing:.14em;padding:3px 0}
-.date .d{display:block;font-family:var(--display);font-weight:800;font-size:1.9rem;line-height:1.15;padding:4px 0 0}
-.date .w{display:block;font-size:.72rem;color:var(--muted);padding-bottom:5px}
-.event .meta{color:var(--muted);font-size:.95rem;margin-top:2px}
-.event > div:nth-child(2){min-width:0}
-.tag{font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--tint);color:var(--green);white-space:nowrap}
-:root[data-theme="dark"] .tag{color:var(--marigold)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag{color:var(--marigold)}}
+/* Main grid */
+main{padding-block:32px 48px;display:grid;gap:28px}
+.grid{display:grid;grid-template-columns:330px minmax(0,1fr);gap:28px;align-items:start}
+.stack{display:grid;gap:20px}
+.card{background:var(--card);padding:24px;border-radius:4px}
+.card h2{font-size:1.05rem;text-transform:uppercase;letter-spacing:.04em;text-align:center}
+.card.center{text-align:center}
+.card.center p{margin-top:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;width:100%;padding:12px 16px;background:var(--blue);color:var(--blue-ink);text-decoration:none;font-family:var(--ui);font-weight:700;font-size:1.05rem;border-radius:3px;border:0;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn svg{width:20px;height:20px;flex:none}
+.email{display:block;margin-top:12px;font-family:var(--ui);font-weight:700;font-size:1.05rem;color:var(--navy);user-select:all;overflow-wrap:anywhere}
+.copy{margin-top:8px;background:transparent;border:1px solid var(--line);color:var(--ink);font-family:var(--ui);font-weight:600;padding:6px 14px;border-radius:3px;cursor:pointer}
 
-/* Volunteer */
-.alt{background:var(--tint)}
-.vol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.vol article{background:var(--surface);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:8px}
-.vol .time{font-size:.85rem;font-weight:700;color:var(--muted)}
-.vol p{color:var(--muted)}
+/* Calendar agenda */
+.cal-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:14px}
+.cal-head h2{text-align:left}
+.cal-head a{font-family:var(--ui);font-size:.92rem;font-weight:600}
+.agenda{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.agenda li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid var(--line);align-items:start}
+.day{font-family:var(--ui);text-align:center;font-variant-numeric:tabular-nums;line-height:1.1}
+.day b{display:block;font-size:1.5rem;color:var(--navy)}
+.day span{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.what{display:flex;flex-direction:column;gap:2px}
+.what strong{font-family:var(--ui);font-weight:700;font-size:1rem}
+.what small{color:var(--muted);font-size:.92rem}
+.kind{align-self:flex-start;font-family:var(--ui);font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:2px;background:var(--chip);color:var(--navy);margin-bottom:2px}
+.kind.ptc{background:var(--gold);color:#2b2100}
+.note{margin-top:14px;color:var(--muted);font-size:.92rem}
 
-/* Fund */
-.fund{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
-.fund-copy p{margin-top:14px;max-width:32em}
-.bar{margin-top:24px}
-.bar-track{height:16px;border-radius:999px;background:var(--tint);overflow:hidden}
-.bar-fill{height:100%;width:61%;background:var(--marigold);border-radius:999px}
-.bar-label{display:flex;justify-content:space-between;margin-top:8px;font-variant-numeric:tabular-nums;font-size:.95rem}
-.bar-label strong{font-family:var(--display);font-size:1.3rem}
-.uses{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
-.uses li{display:grid;grid-template-columns:1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
-.uses .amt{font-variant-numeric:tabular-nums;font-weight:700}
-.uses small{display:block;color:var(--muted);font-size:.88rem}
+/* Sections */
+.section{background:var(--card);padding:32px;border-radius:4px}
+.section > h2{font-size:1.5rem}
+.section > .lead{margin-top:8px;color:var(--muted);max-width:44em}
+.events{margin-top:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px}
+.events div{padding:14px 0;border-top:1px solid var(--line)}
+.events .mo{font-family:var(--ui);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.events h3{font-size:1rem;margin-top:2px}
+.events p{font-size:.95rem;color:var(--muted);margin-top:2px}
+.committees{margin-top:22px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
+.committee{padding:14px 0;border-top:1px solid var(--line)}
+.committee h3{font-size:1.02rem}
+.committee p{font-size:.95rem;margin-top:3px}
+.committee .chairs{font-family:var(--ui);font-size:.9rem;color:var(--muted);margin-top:4px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.meet-dates{margin-top:12px;font-family:var(--ui);font-weight:600}
+.tick{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:8px}
+.tick li{padding-left:22px;position:relative}
+.tick li::before{content:"";position:absolute;left:0;top:.6em;width:10px;height:10px;border-radius:50%;background:var(--gold)}
 
-/* Board */
-.board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
-.person{display:flex;flex-direction:column;gap:2px}
-.avatar{width:56px;height:56px;border-radius:50%;background:var(--green);color:var(--green-ink);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.1rem;margin-bottom:10px}
-.person .role{color:var(--muted);font-size:.92rem}
+/* Footer links */
+.links{background:var(--card);border-top:8px solid var(--gold)}
+.links .wrap{padding-block:40px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.links h2{font-size:1.15rem;margin-bottom:10px}
+.links ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-family:var(--ui);font-size:.95rem}
+.links a{color:var(--ink);text-underline-offset:3px}
+.links a:hover{color:var(--blue)}
+footer{padding-block:20px;text-align:center;color:var(--muted);font-family:var(--ui);font-size:.88rem}
 
-/* Meetings + contact */
-.two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
-.docs{list-style:none;margin:16px 0 0;padding:0}
-.docs li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
-.docs li span:last-child{color:var(--muted);font-size:.92rem;white-space:nowrap}
-.contact-card{background:var(--green);color:var(--green-ink);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:14px}
-.email-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
-.email{font-family:var(--display);font-weight:700;font-size:1.25rem;user-select:all;overflow-wrap:anywhere}
-.copy{background:var(--marigold);color:var(--marigold-ink);border:0;border-radius:999px;padding:7px 14px;font-weight:700;font-family:var(--body);cursor:pointer}
-
-footer{padding-block:28px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
-
-@media (max-width:760px){
-  .hero,.fund,.two{grid-template-columns:1fr;gap:32px}
-  .next{transform:none}
-  .vol{grid-template-columns:1fr}
-  .board{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .event{grid-template-columns:70px 1fr;gap:14px}
-  .event .tag{grid-column:2;justify-self:start}
-  section{padding-block:48px}
+@media (max-width:880px){
+  .grid,.split{grid-template-columns:1fr}
+  .events{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .links .wrap{grid-template-columns:1fr 1fr}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:560px){
+  .events,.committees,.links .wrap{grid-template-columns:1fr}
+  .section{padding:22px}
+  .banner .wrap{padding-block:48px 40px}
+  .menu{gap:2px 14px;font-size:.9rem}
+}
 </style>
 </head>
 <body>
 
-<header class="top">
+<header class="bar">
   <div class="wrap">
-    <nav class="nav" aria-label="Main">
-      <a class="brand" href="#top">
-        <svg class="leaf" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="var(--marigold)"/><path d="M20 8 L23 15 L30 13 L27 20 L32 24 L24 25 L22 32 L20 28 L18 32 L16 25 L8 24 L13 20 L10 13 L17 15 Z" fill="var(--green)"/></svg>
-        Maple Hill PTC
-      </a>
-      <ul>
+    <a class="brand" href="#top">
+      <svg class="badge" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" fill="var(--navy)"/>
+        <circle cx="20" cy="20" r="15.5" fill="none" stroke="var(--gold)" stroke-width="1.6"/>
+        <text x="20" y="24.5" text-anchor="middle" font-family="Merriweather, Georgia, serif" font-weight="900" font-size="12" fill="var(--card)">PTC</text>
+      </svg>
+      Eliot PTC
+    </a>
+    <nav aria-label="Main">
+      <ul class="menu">
+        <li><a href="#calendar">Calendar</a></li>
         <li><a href="#events">Events</a></li>
-        <li><a href="#volunteer">Volunteer</a></li>
-        <li><a href="#fund">Annual Fund</a></li>
-        <li><a href="#board">Board</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#committees">Get Involved</a></li>
+        <li><a href="#meetings">Meetings</a></li>
+        <li><a href="#links">Resources</a></li>
       </ul>
     </nav>
-    <div class="hero" id="top">
-      <div>
-        <p class="eyebrow" style="color:var(--green-ink);opacity:.75">Maple Hill Elementary Parent Teacher Council</p>
-        <h1 style="margin-top:10px">Families and teachers, <em>building a great school year</em> together.</h1>
-        <p>Every Maple Hill family is already a member. We fund field trips and classroom grants, run community events, and give parents a voice at school.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="#volunteer">Find a way to help</a>
-          <a class="btn btn-ghost" href="#events">See what's coming up</a>
-        </div>
-      </div>
-      <aside class="next" aria-label="Next event">
-        <p class="eyebrow">Next up</p>
-        <h3>Fall Harvest Festival</h3>
-        <p><strong>Friday, Oct 30</strong> · 3:30–6:00 pm<br>School field (gym if it rains). Costumes welcome!</p>
-      </aside>
-    </div>
   </div>
 </header>
 
-<main>
-  <section id="events">
-    <div class="wrap">
-      <div class="sec-head">
-        <div><p class="eyebrow">2026–27 school year</p><h2 style="margin-top:6px">Upcoming events</h2></div>
-        <p>All events are free unless noted. Siblings and grandparents are always welcome.</p>
+<section class="banner" id="top" aria-label="Welcome">
+  <div class="wrap">
+    <h1>John Eliot School Parent Teacher Council</h1>
+    <p>Enhancing the experience of every child and family at Eliot. Every parent, teacher, and staff member is part of the PTC.</p>
+    <p class="addr">135 Wellesley Avenue · Needham, MA 02494</p>
+  </div>
+</section>
+
+<main class="wrap">
+  <div class="grid">
+    <div class="stack">
+      <div class="card center">
+        <h2>Empower Eliot</h2>
+        <p>Our annual campaign funds classroom enrichment, teacher supplies, field trip buses, and school events. Donations are tax-deductible and may qualify for employer matching.</p>
+        <a class="btn" href="https://givebutter.com/ZNqHm4" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21s-7.5-4.6-9.6-9.2C1 8.6 3 5 6.6 5c2 0 3.5 1.1 4.4 2.5C11.9 6.1 13.4 5 15.4 5 19 5 21 8.6 19.6 11.8 17.5 16.4 12 21 12 21z"/></svg>
+          Donate
+        </a>
       </div>
-      <ul class="events">
-        <li class="event">
-          <div class="date"><span class="m">OCT</span><span class="d">30</span><span class="w">Fri</span></div>
-          <div><h3>Fall Harvest Festival</h3><p class="meta">3:30–6:00 pm · School field · Pumpkin decorating, cider, costume parade at 4:30</p></div>
-          <span class="tag">Family</span>
-        </li>
-        <li class="event">
-          <div class="date"><span class="m">NOV</span><span class="d">10</span><span class="w">Tue</span></div>
-          <div><h3>PTC General Meeting</h3><p class="meta">7:00 pm · School library and Zoom · Principal's update, budget vote</p></div>
-          <span class="tag">Meeting</span>
-        </li>
-        <li class="event">
-          <div class="date"><span class="m">NOV</span><span class="d">16</span><span class="w">Mon</span></div>
-          <div><h3>Scholastic Book Fair</h3><p class="meta">Nov 16–20 · Library · Family shopping night Thursday until 7 pm</p></div>
-          <span class="tag">Fundraiser</span>
-        </li>
-        <li class="event">
-          <div class="date"><span class="m">DEC</span><span class="d">4</span><span class="w">Fri</span></div>
-          <div><h3>Family Movie Night</h3><p class="meta">6:00 pm · Gym · Bring a blanket; popcorn by the 5th grade</p></div>
-          <span class="tag">Family</span>
-        </li>
-        <li class="event">
-          <div class="date"><span class="m">DEC</span><span class="d">12</span><span class="w">Sat</span></div>
-          <div><h3>Winter Craft Fair</h3><p class="meta">10:00 am–2:00 pm · Cafeteria · Student and local maker tables</p></div>
-          <span class="tag">Fundraiser</span>
-        </li>
+      <div class="card center">
+        <h2>Volunteer</h2>
+        <p>Committees and events run on parent volunteers. Help for an hour or for the whole year. Email us to sign up.</p>
+        <span class="email" id="email">PTCeliot@gmail.com</span>
+        <button class="copy" id="copyBtn" type="button">Copy email address</button>
+      </div>
+      <div class="card center">
+        <h2>Stay Connected</h2>
+        <p>Join the Eliot families Facebook group for reminders, photos, and last-minute volunteer asks.</p>
+        <a class="btn" href="https://www.facebook.com/groups/296733184128914/" target="_blank" rel="noopener">Join the Facebook group</a>
+      </div>
+    </div>
+
+    <div class="card" id="calendar">
+      <div class="cal-head">
+        <h2>Upcoming Dates</h2>
+        <a href="https://eliot.needham.k12.ma.us/our_school/n_p_s_calendar" target="_blank" rel="noopener">Full Needham Public Schools calendar →</a>
+      </div>
+      <ul class="agenda">
+        <li><div class="day"><b>3</b><span>Nov · Tue</span></div><div class="what"><span class="kind">No school</span><strong>Election Day</strong></div></li>
+        <li><div class="day"><b>11</b><span>Nov · Wed</span></div><div class="what"><span class="kind">No school</span><strong>Veterans Day</strong></div></li>
+        <li><div class="day"><b>1</b><span>Jan · Fri</span></div><div class="what"><span class="kind">No school</span><strong>Winter break ends</strong><small>School resumes the following week</small></div></li>
+        <li><div class="day"><b>17</b><span>Mar · Wed</span></div><div class="what"><span class="kind">Early release</span><strong>Dismissal at 12:15 pm</strong></div></li>
+        <li><div class="day"><b>26</b><span>Mar · Fri</span></div><div class="what"><span class="kind">No school</span><strong>Good Friday</strong></div></li>
+        <li><div class="day"><b>7</b><span>Apr · Wed</span></div><div class="what"><span class="kind">Early release</span><strong>Dismissal at 12:15 pm</strong></div></li>
       </ul>
+      <p class="note">School hours are 8:20 am to 2:45 pm. Early release days end at 12:15 pm.</p>
+    </div>
+  </div>
+
+  <section class="section" id="events">
+    <h2>PTC Events Through the Year</h2>
+    <p class="lead">These are the community events Eliot families look forward to every year. Exact dates for 2026–27 will be posted here and in the Facebook group.</p>
+    <div class="events">
+      <div><span class="mo">September</span><h3>Welcome Back Night</h3><p>Kick off the year together; last year was an outdoor movie night.</p></div>
+      <div><span class="mo">October</span><h3>Curriculum Night</h3><p>Meet the teachers and hear from the principal and specialists.</p></div>
+      <div><span class="mo">October</span><h3>Trunk or Treat</h3><p>Costumes, treats, and decorated cars. Families can host a trunk.</p></div>
+      <div><span class="mo">January</span><h3>STEM Festival</h3><p>Hands-on science and engineering for every grade.</p></div>
+      <div><span class="mo">Winter</span><h3>Winter Dance Party</h3><p>A family dance night to beat the January blues.</p></div>
+      <div><span class="mo">March</span><h3>Multicultural Fair</h3><p>Food, music, and traditions from Eliot families around the world.</p></div>
+      <div><span class="mo">Spring</span><h3>Parents Night Out</h3><p>An adults-only evening that raises money for the school.</p></div>
+      <div><span class="mo">May</span><h3>Staff Kickball Game</h3><p>Eliot takes on Sunita Williams in a friendly rivalry game.</p></div>
+      <div><span class="mo">June</span><h3>End of Year Picnic</h3><p>A relaxed send-off to summer for the whole community.</p></div>
     </div>
   </section>
 
-  <section id="volunteer" class="alt">
-    <div class="wrap">
-      <div class="sec-head">
-        <div><p class="eyebrow">Get involved</p><h2 style="margin-top:6px">Ways to volunteer</h2></div>
-        <p>Have one hour or ten? There's a job that fits. Email us and we'll match you up.</p>
-      </div>
-      <div class="vol">
-        <article><span class="time">About 2 hrs / month</span><h3>Room parent</h3><p>Be the link between your child's teacher and class families. Organize class parties and share reminders.</p></article>
-        <article><span class="time">One 2-hr shift</span><h3>Book fair helper</h3><p>Help kids find books, run the register, and restock shelves during the November fair.</p></article>
-        <article><span class="time">Event day</span><h3>Festival crew</h3><p>Set up tables, staff an activity booth, or help clean up after the Harvest Festival.</p></article>
-        <article><span class="time">Flexible</span><h3>Hospitality committee</h3><p>Plan staff lunches and Teacher Appreciation Week so our teachers know they're valued.</p></article>
-      </div>
+  <section class="section" id="committees">
+    <h2>Get Involved: Committees</h2>
+    <p class="lead">Interested in joining a committee? Email <strong>PTCeliot@gmail.com</strong> and the chairs will reach out.</p>
+    <div class="committees">
+      <div class="committee"><h3>Co-Presidents</h3><p>Oversee PTC committees and work with school and district leaders.</p><p class="chairs">Katie Feins, Nicole Barka, Nora Capraro</p></div>
+      <div class="committee"><h3>Treasurers</h3><p>Manage the PTC budget, finances, and reimbursements.</p><p class="chairs">Victoria Martell, Nataliya Belkin</p></div>
+      <div class="committee"><h3>Fundraising</h3><p>Run Empower Eliot and other events that pay for school programs.</p><p class="chairs">Lisa Freedman, Kerry Vanaria</p></div>
+      <div class="committee"><h3>Curriculum Enrichment</h3><p>Bring guest speakers and hands-on workshops to each grade.</p><p class="chairs">Erin Valerio, Geanina Hent, Meital Giller David</p></div>
+      <div class="committee"><h3>Events</h3><p>Plan Movie Night, Trunk or Treat, STEM Festival, the picnic, and more.</p><p class="chairs">Volunteers needed</p></div>
+      <div class="committee"><h3>Teacher Appreciation</h3><p>Thank our teachers and staff throughout the year.</p><p class="chairs">Beck Lacouture, Jennie Jonas, Deanna Griffiths</p></div>
+      <div class="committee"><h3>Room Parents</h3><p>Connect class families and organize classroom celebrations.</p><p class="chairs">Dyanna Cotter</p></div>
+      <div class="committee"><h3>Yearbook</h3><p>Plan, design, and produce the Eliot yearbook.</p><p class="chairs">Frances Tomasetti, Rita Lewinter, Stephanie Cheung</p></div>
+      <div class="committee"><h3>Media (Library)</h3><p>Shelve and check out books during library class.</p><p class="chairs">Volunteers needed</p></div>
+      <div class="committee"><h3>5th Grade Activities</h3><p>Plan end-of-year activities and fifth grade graduation.</p><p class="chairs">Chairs to be announced</p></div>
     </div>
   </section>
 
-  <section id="fund">
-    <div class="wrap fund">
-      <div class="fund-copy">
-        <p class="eyebrow">Annual Fund 2026–27</p>
-        <h2 style="margin-top:6px">One donation instead of a dozen fundraisers</h2>
-        <p>The Annual Fund pays for the extras our school budget doesn't cover. Any amount helps, and every dollar stays at Maple Hill.</p>
-        <div class="bar" role="img" aria-label="$18,400 raised of a $30,000 goal">
-          <div class="bar-track"><div class="bar-fill"></div></div>
-          <div class="bar-label"><span><strong>$18,400</strong> raised</span><span>Goal $30,000</span></div>
-        </div>
-        <div class="cta"><a class="btn btn-primary" href="#contact">Donate to the Annual Fund</a></div>
-      </div>
-      <div>
-        <h3 style="margin-bottom:14px">Where the money goes</h3>
-        <ul class="uses">
-          <li><div>Field trips<small>Buses and admission for every grade</small></div><span class="amt">$9,500</span></li>
-          <li><div>Enrichment programs<small>Science assemblies, visiting authors</small></div><span class="amt">$7,000</span></li>
-          <li><div>Teacher classroom grants<small>$150 per teacher for supplies</small></div><span class="amt">$5,400</span></li>
-          <li><div>Community events<small>Festival, movie night, field day</small></div><span class="amt">$4,600</span></li>
-          <li><div>Family assistance<small>Trip and event fees for any family who needs it</small></div><span class="amt">$3,500</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="board" class="alt">
-    <div class="wrap">
-      <div class="sec-head">
-        <div><p class="eyebrow">Your volunteers</p><h2 style="margin-top:6px">2026–27 PTC board</h2></div>
-      </div>
-      <div class="board">
-        <div class="person"><div class="avatar">JR</div><h3>Jamie Reyes</h3><span class="role">Co-President</span></div>
-        <div class="person"><div class="avatar">PS</div><h3>Priya Shah</h3><span class="role">Co-President</span></div>
-        <div class="person"><div class="avatar">MO</div><h3>Mark O'Brien</h3><span class="role">Treasurer</span></div>
-        <div class="person"><div class="avatar">LC</div><h3>Lin Chen</h3><span class="role">Secretary</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="wrap two">
-      <div>
-        <p class="eyebrow">Meetings</p>
-        <h2 style="margin-top:6px">Come to a meeting</h2>
-        <p style="margin-top:14px;max-width:32em">General meetings are on the second Tuesday of the month at 7 pm, in the library and on Zoom. Everyone is welcome; no need to RSVP.</p>
-        <ul class="docs">
-          <li><span>October meeting minutes</span><span>Oct 13</span></li>
-          <li><span>2026–27 budget (draft)</span><span>Sep 29</span></li>
-          <li><span>September meeting minutes</span><span>Sep 8</span></li>
-        </ul>
-      </div>
-      <div class="contact-card">
-        <p class="eyebrow" style="color:var(--green-ink);opacity:.75">Contact us</p>
-        <h2>Questions, ideas, or want to help?</h2>
-        <p>We read every email and usually reply within two days.</p>
-        <div class="email-row">
-          <span class="email" id="email">ptc@maplehillschool.org</span>
-          <button class="copy" id="copyBtn" type="button">Copy</button>
-        </div>
-        <p style="font-size:.95rem;opacity:.85">Find us on the school's Facebook page and in the Friday family newsletter.</p>
-      </div>
-    </div>
-  </section>
+  <div class="split" id="meetings">
+    <section class="section">
+      <h2>PTC Meetings</h2>
+      <p class="lead">All parents and guardians are welcome. Meetings are on Thursdays at 6:30 pm on Zoom, unless noted otherwise.</p>
+      <p class="meet-dates">2026–27 dates coming soon.</p>
+      <p class="lead" style="margin-top:12px">Meeting notes and the weekly Eliot Bulletin are posted on the <a href="https://eliot.needham.k12.ma.us/news/what_s_new" target="_blank" rel="noopener">school news page</a>.</p>
+    </section>
+    <section class="section">
+      <h2>Where Your Donation Goes</h2>
+      <ul class="tick">
+        <li>Curriculum enrichment and visiting programs</li>
+        <li>Classroom supplies for teachers</li>
+        <li>Buses for class field trips</li>
+        <li>School-wide community events</li>
+        <li>Equipment for the school</li>
+      </ul>
+      <p class="lead" style="margin-top:14px">The John Eliot School PTC is a 501(c)(3) nonprofit.</p>
+    </section>
+  </div>
 </main>
 
-<footer>
+<section class="links" id="links" aria-label="Resources">
   <div class="wrap">
-    <span>Maple Hill Elementary PTC · 120 School Street</span>
-    <span>A volunteer-run parent organization</span>
+    <div>
+      <h2>School Links</h2>
+      <ul>
+        <li><a href="https://eliot.needham.k12.ma.us/" target="_blank" rel="noopener">Eliot School website</a></li>
+        <li><a href="https://eliot.needham.k12.ma.us/our_school/n_p_s_calendar" target="_blank" rel="noopener">NPS calendar</a></li>
+        <li><a href="https://eliot.needham.k12.ma.us/news/what_s_new" target="_blank" rel="noopener">Eliot Bulletin and news</a></li>
+        <li><a href="https://www.schoolnutritionandfitness.com/webmenus2/#/view?id=68d183648c96c41d2d02f4b7&amp;menuType=5b327768534a13781e8b4714&amp;siteCode=4501&amp;siteCode2=10240&amp;showAllNutrients=false" target="_blank" rel="noopener">Lunch menu</a></li>
+        <li><a href="https://docs.google.com/document/d/1tc5ypJSSp3qx97fHQpvYhivOqvST_yk62lkXjaKpR1k/edit" target="_blank" rel="noopener">School supply list</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Needham Links</h2>
+      <ul>
+        <li><a href="https://www.nedpkids.com/" target="_blank" rel="noopener">Needham Extended Day Program</a></li>
+        <li><a href="https://www.needhamsepac.org/" target="_blank" rel="noopener">Needham SEPAC</a></li>
+        <li><a href="https://www.citizensforneedhamschools.com/" target="_blank" rel="noopener">Citizens for Needham Schools</a></li>
+        <li><a href="https://www.nefneedham.org/" target="_blank" rel="noopener">Needham Education Foundation</a></li>
+        <li><a href="https://cdnsm5-ss13.sharpschool.com/UserFiles/Servers/Server_78996/File/Lang%20Assist%20District.PDF" target="_blank" rel="noopener">Language assistance services</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Connect with the PTC</h2>
+      <ul>
+        <li><a href="mailto:PTCeliot@gmail.com">PTCeliot@gmail.com</a></li>
+        <li><a href="https://www.facebook.com/groups/296733184128914/" target="_blank" rel="noopener">Facebook group</a></li>
+        <li><a href="https://givebutter.com/ZNqHm4" target="_blank" rel="noopener">Donate to Empower Eliot</a></li>
+      </ul>
+    </div>
   </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 John Eliot School PTC · 135 Wellesley Avenue, Needham, MA 02494</div>
 </footer>
 
 <script>
 document.getElementById('copyBtn').addEventListener('click', function(){
-  var btn = this, text = document.getElementById('email').textContent;
-  function done(){ btn.textContent = 'Copied'; setTimeout(function(){ btn.textContent = 'Copy'; }, 1800); }
+  var btn = this, el = document.getElementById('email');
+  function done(){ btn.textContent = 'Copied'; setTimeout(function(){ btn.textContent = 'Copy email address'; }, 1800); }
   function fallback(){
-    var r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
+    var r = document.createRange(); r.selectNodeContents(el);
     var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-    btn.textContent = 'Selected';
+    btn.textContent = 'Selected: press Ctrl+C or Cmd+C';
   }
-  try { navigator.clipboard.writeText(text).then(done, fallback); } catch(e){ fallback(); }
+  try { navigator.clipboard.writeText(el.textContent).then(done, fallback); } catch(e){ fallback(); }
 });
 </script>
 </body>
