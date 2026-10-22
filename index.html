@@ -98,9 +98,6 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .mascot{position:relative;justify-self:center;width:260px;aspect-ratio:1;border-radius:50%;background:var(--pale);display:grid;place-items:end center}
 .mascot img{width:74%;height:auto;margin-bottom:-2px}
 .burst{position:absolute;inset:-26px;width:calc(100% + 52px);height:calc(100% + 52px);stroke:var(--gold);stroke-width:2.6;stroke-linecap:round;fill:none}
-.float-heart{position:absolute;width:34px;height:34px}
-.float-heart.a{top:4px;right:4px;fill:var(--gold)}
-.float-heart.b{top:48%;left:-14px;fill:none;stroke:var(--sky);stroke-width:2.4}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;background:var(--gold);color:var(--navy);text-decoration:none;font-family:var(--f-mark);font-weight:800;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;border:0;cursor:pointer;transition:transform .15s ease}
@@ -245,8 +242,6 @@ footer{background:var(--footer);border-top:1px solid rgba(255,255,255,.12);paddi
     </div>
     <div class="mascot">
       <svg class="burst" viewBox="0 0 100 100" aria-hidden="true"><path d="M19 21 l-6 -6 M10 37 l-8 -2 M81 21 l6 -6 M90 37 l8 -2 M50 7 l0 -6"/></svg>
-      <svg class="float-heart a" aria-hidden="true"><use href="#h"/></svg>
-      <svg class="float-heart b" aria-hidden="true"><use href="#h"/></svg>
       <img src="eliot-eagle.png" alt="The Eliot eagle mascot, smiling with a gold heart on its chest" width="221" height="300">
     </div>
   </div>
